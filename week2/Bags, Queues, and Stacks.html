@@ -1,0 +1,1721 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html lang="en">
+
+<head>
+
+<link rel="icon"          href="http://algs4.cs.princeton.edu/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="http://algs4.cs.princeton.edu/favicon.ico" type="image/x-icon">
+<link rel="stylesheet"    href="http://algs4.cs.princeton.edu/algs4.css"   type="text/css" media="screen">
+<meta name="google-site-verification" content="nYspbl5bNBQrNZKguiAAFTMVM7sq2P1WQYc8Oi6Okl0" />
+<meta name="msvalidate.01" content="D4B7F6DF793EFF34DE96F611C2A367A5" />
+
+<!-- IE HACKS -->
+<!--[if IE]>
+<style type="text/css" media="screen">
+ #menu ul li {float: left; width: 100%;}
+</style>
+<![endif]-->
+<!--[if lt IE 7]>
+<style type="text/css" media="screen">
+body {
+behavior: url(/csshover.htc);
+} 
+#menu ul li {float: left; width: 100%;}
+#menu ul li a {height: 1%;} 
+
+#menu a, #menu h2 {
+font: bold 0.9em/1.5em arial, helvetica, sans-serif;
+} 
+
+</style>
+<![endif]-->
+
+
+
+<title>
+Bags, Queues, and Stacks</title>
+
+<META HTTP-EQUIV="Content-Type" content="text/html; charset=iso-8859-1">
+<META NAME="AUTHOR" CONTENT="Robert Sedgewick and Kevin Wayne">
+<META NAME="KEYWORDS" CONTENT="Bags, Queues, and Stacks,Algorithms,4th edition,data structures,Java,intro,introduction,Sedgewick,Wayne">
+<META NAME="DESCRIPTION" CONTENT="The textbook Algorithms, 4th Edition by Robert Sedgewick and Kevin Wayne surveys the most important algorithms and data structures in use today. The broad perspective taken makes it an appropriate introduction to the field.">
+<META NAME="TITLE" CONTENT="Bags, Queues, and Stacks. Algorithms, 4th Edition by Robert Sedgewick and Kevin Wayne.">
+<META NAME="ROBOTS" CONTENT="INDEX,FOLLOW">
+
+<script type='text/javascript' src='/media/swfobject.js'></script>
+</head>
+
+
+<body>
+
+<div id = "menu">
+<div align="center">
+<a class = picture href = "http://algs4.cs.princeton.edu">
+<img src="http://algs4.cs.princeton.edu/cover.png" width=189 height=236 border=0 alt = "Algorithms, 4th Edition by Robert Sedgewick and Kevin Wayne">
+</a>  
+</div>
+
+
+
+
+
+<ul>
+  <li><a class = title href = "http://algs4.cs.princeton.edu">Algorithms, 4th edition</a>
+
+<ul>
+
+
+      <li> <a href = "/10fundamentals">1.&nbsp;&nbsp;Fundamentals</a>
+        <ul>
+          <li> <a href = "/11model">1.1&nbsp;&nbsp;Programming Model</a>
+          <li> <a href = "/12oop">1.2&nbsp;&nbsp;Data Abstraction</a>
+          <li> <a href = "/13stacks">1.3&nbsp;&nbsp;Stacks and Queues</a>
+          <li> <a href = "/14analysis">1.4&nbsp;&nbsp;Analysis of Algorithms</a>
+          <li> <a href = "/15uf">1.5&nbsp;&nbsp;Case Study: Union-Find</a>
+        </ul>
+
+      <li> <a href = "/20sorting">2.&nbsp;&nbsp;Sorting</a>
+        <ul>
+          <li> <a href = "/21elementary">2.1&nbsp;&nbsp;Elementary Sorts</a>
+          <li> <a href = "/22mergesort">2.2&nbsp;&nbsp;Mergesort</a>
+          <li> <a href = "/23quicksort">2.3&nbsp;&nbsp;Quicksort</a>
+          <li> <a href = "/24pq">2.4&nbsp;&nbsp;Priority Queues</a>
+          <li> <a href = "/25applications">2.5&nbsp;&nbsp;Sorting Applications</a>
+        </ul>
+
+      <li> <a href = "/30searching">3.&nbsp;&nbsp;Searching</a>
+        <ul>
+          <li> <a href = "/31elementary">3.1&nbsp;&nbsp;Symbol Tables</a>
+          <li> <a href = "/32bst">3.2&nbsp;&nbsp;Binary Search Trees</a>
+          <li> <a href = "/33balanced">3.3&nbsp;&nbsp;Balanced Search Trees</a>
+          <li> <a href = "/34hash">3.4&nbsp;&nbsp;Hash Tables</a>
+          <li> <a href = "/35applications">3.5&nbsp;&nbsp;Searching Applications</a>
+        </ul>
+
+      <li> <a href = "/40graphs">4.&nbsp;&nbsp;Graphs</a>
+        <ul>
+          <li> <a href = "/41undirected">4.1&nbsp;&nbsp;Undirected Graphs</a>
+          <li> <a href = "/42directed">4.2&nbsp;&nbsp;Directed Graphs</a>
+          <li> <a href = "/43mst">4.3&nbsp;&nbsp;Minimum Spanning Trees</a>
+          <li> <a href = "/44sp">4.4&nbsp;&nbsp;Shortest Paths</a>
+        </ul>
+
+      <li> <a href = "/50strings">5.&nbsp;&nbsp;Strings</a>
+        <ul>
+          <li> <a href = "/51radix">5.1&nbsp;&nbsp;String Sorts</a>
+          <li> <a href = "/52trie">5.2&nbsp;&nbsp;Tries</a>
+          <li> <a href = "/53substring">5.3&nbsp;&nbsp;Substring Search</a>
+          <li> <a href = "/54regexp">5.4&nbsp;&nbsp;Regular Expressions</a>
+          <li> <a href = "/55compression">5.5&nbsp;&nbsp;Data Compression</a>
+        </ul>
+
+      <li> <a href = "/60context">6.&nbsp;&nbsp;Context</a>
+        <ul>
+          <li> <a href = "/61event">6.1&nbsp;&nbsp;Event-Driven Simulation</a>
+          <li> <a href = "/62btrees">6.2&nbsp;&nbsp;B-trees</a>
+          <li> <a href = "/63suffix">6.3&nbsp;&nbsp;Suffix Arrays</a>
+          <li> <a href = "/64maxflow">6.4&nbsp;&nbsp;Maxflow</a>
+          <li> <a href = "/65reductions">6.5&nbsp;&nbsp;Reductions</a>
+          <li> <a href = "/66intractability">6.6&nbsp;&nbsp;Intractability</a>
+        </ul>
+    </ul>
+
+
+
+
+<li><a class = title> Related Booksites</a>
+<table width = 100% border = 0 cellspacing = 0 cellpadding = 0>
+<tr>
+<td align = center>
+<a class = booksite href = "http://introcs.cs.princeton.edu">
+   <img src = "http://introcs.cs.princeton.edu/java/cover.jpg"
+        width = 80 height = 108 border=0
+        alt = "Introduction to Programming in Java
+               by Robert Sedgewick and Kevin Wayne">
+</a>
+<td align = center>
+<a class = booksite href = "http://aofa.cs.princeton.edu">
+   <img src = "http://algs4.cs.princeton.edu/cover-analysis-of-algorithms.png"
+        width = 81 height = 108 border=0
+        alt = "An Introduction to the Analysis of Algorithms by Robert Sedgewick and Philippe Flajolet">
+</a>
+</tr>
+</table>
+
+<li><a class = title>Web Resources</a>
+
+
+      <li> <a href = "/faq">FAQ</a>
+      <li> <a href = "http://introcs.cs.princeton.edu/java/data">Data</a>
+      <li> <a href = "/code">Code</a>
+      <li> <a href = "/errata">Errata</a>
+      <li> <a href = "/references">References</a>
+      <li> <a href = "https://www.coursera.org/course/algs4partI">Online Course</a>
+      <li> <a href = "/lectures">Lecture Slides</a>
+      <li> <a href = "http://introcs.cs.princeton.edu/java/assignments">Programming Assignments</a>
+      <li>
+   </ul>
+
+</ul>
+
+<p><br>
+
+<script>
+  (function() {
+    var cx = '005649317310637734940:s7fqljvxwfs';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:searchbox-only></gcse:searchbox-only>
+
+<p><br>
+
+
+
+
+</div>
+
+
+<div id = "content">
+<H1>1.3 &nbsp; Bags, Queues, and Stacks</H1>
+
+<p><br>
+
+<p><br>
+Several fundamental data types involve collections of objects.
+Specifically, the set of values is a collection of objects,
+and the operations revolve around adding, removing, or examining 
+objects in the collection. In this section,
+we consider three such data types, known as the bag, the queue,
+and the stack. They differ in the specification of which object is to be 
+removed or examined next.
+
+
+<p><h2>APIs.</h2>
+We define the APIs for bags, queues, and stacks.
+Beyond the basics, these APIs reflect two Java features:
+generics and iterable collections.
+
+
+
+<p><center>
+<IMG SRC="images/collection-apis.png" alt = "APIs for bag, queue, and stack">
+</center>
+
+<ul>
+<p><li><em>Generics.</em>
+An essential characteristic of collection ADTs is that we should
+be able to use them for any type of data.
+A specific Java mechanism known as <em>generics</em> enables this capability.
+The notation  <tt>&lt;Item&gt;</tt> after the class name in each of
+our APIs defines the name <tt>Item</tt> as a <em>type parameter</em>, a 
+symbolic placeholder for some concrete type to be used by the client.
+You can read <tt>Stack&lt;Item&gt;</tt> as "stack of items." For example, you can write
+code such as
+
+<blockquote>
+<table>
+<TR><TD><pre>
+Stack&lt;String&gt; stack = new Stack&lt;String&gt;();
+stack.push("Test");
+...
+String next = stack.pop(); 
+</pre></td></tr>
+</table>
+</blockquote>
+
+to use a stack for <tt>String</tt> objects.
+
+
+<p><li><em>Autoboxing.</em>
+Type parameters have to be instantiated as reference types, so Java automatically
+converts between a primitive type and its corresponding wrapper type in
+assignments, method arguments, and arithmetic/logic expressions.
+This conversion enables us to use generics with primitive types, as
+in the following code:
+
+<blockquote>
+<table>
+<TR><TD><pre>
+Stack&lt;Integer&gt; stack = new Stack&lt;Integer&gt;();
+stack.push(17);        // auto-boxing (int -> Integer)
+int i = stack.pop();   // auto-unboxing (Integer -> int)
+</pre></td></tr>
+</table>
+</blockquote>
+
+Automatically casting a primitive type to a wrapper type is known as <em>autoboxing</em>,
+and automatically casting a wrapper type to a primitive type is known as 
+<em>auto-unboxing</em>.
+
+
+<p><li><em>Iterable collections.</em>
+For many applications, the client's requirement is just to process each 
+of the items in some way, or to <em>iterate</em> through the items in the collection.
+Java's <em>foreach</em> statement supports this paradigm.
+For example, suppose that <tt>collection</tt> is a <tt>Queue&lt;Transaction&gt;</tt>.
+Then, if the collection is iterable, the client can print a transaction list with
+a single statement:
+
+<blockquote>
+<table>
+<TR><TD><pre>
+for (Transaction t : collection)
+   StdOut.println(t);
+</pre></td></tr>
+</table>
+</blockquote>
+
+
+<p><li><em>Bags.</em>
+A <em>bag</em> is a collection where removing items is not
+supported&mdash;its purpose is to provide clients with the ability to collect
+items and then to iterate through the collected items.
+<a href = "Stats.java.html">Stats.java</a> is a bag client that reads a sequence
+of real numbers from standard input and prints out their mean and standard
+deviation.
+
+<p><li><em>FIFO queues.</em>
+A <em>FIFO queue</em> is a collection 
+that is based on the <em>first-in-first-out</em> (FIFO) policy.
+The policy of doing tasks in the same order that they arrive server is one that we encounter 
+frequently in everyday life: from people waiting in line at a theater, to cars waiting in 
+line at a toll booth, to tasks waiting to be serviced by an application on your computer. 
+
+<p><li><em>Pushdown stack.</em>
+A <em>pushdown stack</em> is a collection that is based on the 
+<em>last-in-first-out</em> (LIFO) policy.
+When you click a hyperlink, your browser displays the new page (and pushes onto a stack). You 
+can keep clicking on hyperlinks to visit new pages, but you can always revisit the previous 
+page by clicking the back button (popping it from the stack).
+<a href = "Reverse.java.html">Reverse.java</a> is a stack client that reads a sequence
+of integers from standard input and prints them in reverse order.
+
+<p><li><em>Arithmetic expression evaluation.</em>
+<a href = "Evaluate.java.html">Evaluate.java</a> is a stack client
+that evaluates fully parenthesized arithmetic expressions.
+It uses Dijkstra's 2-stack algorithm:
+<ul>
+<li>Push operands onto the operand stack.
+<li>Push operators onto the operator stack.
+<li>Ignore left parentheses.
+<li>On encountering a right parenthesis, pop an operator, pop the requisite number
+of operands, and push onto the operand stack the result of applying that
+operator to those operands.
+</ul>
+
+<p>
+This code is a simple example of an <em>interpreter</em>.
+
+</ul>
+
+
+<p><h2>Array and resizing array implementations of collections.</h2>
+
+<ul>
+
+<p><li><em>Fixed-capacity stack of strings.</em>
+<a href = "FixedCapacityStackOfStrings.java.html">FixedCapacityStackOfString.java</a>
+implements a fixed-capacity stack of strings using an array.
+
+<p><li><em>Fixed-capacity generic stack.</em>
+<a href = "FixedCapacityStack.java.html">FixedCapacityStack.java</a>
+implements a generic fixed-capacity stack.
+
+<p><li><em>Array resizing stack.</em>
+<a href = "ResizingArrayStack.java.html">ResizingArrayStack.java</a>
+implements a generic stack using a <em>resizing array</em>.
+With a resizing array, we dynamically adjust the size of the array
+so that it is both sufficiently large to hold all of the items and not
+so large as to waste an excessive amount of space.
+We <em>double</em> the size of the array in <tt>push()</tt> if it is full;
+we <em>halve</em> the size of the array in <tt>pop()</tt> if it is less than
+one-quarter full.
+
+<p><li><em>Array resizing queue.</em>
+<a href = "ResizingArrayQueue.java.html">ResizingArrayQueue.java</a>
+implements the queue API with a resizing array.
+
+
+</ul>
+
+<p><h2>Linked lists.</h2>
+A <em>linked list</em> is a recursive data structure that is either 
+empty (<em>null</em>) or a reference to a <em>node</em> having a 
+generic item and a reference to a linked list.
+To implement a linked list, we start with a <em>nested class</em> that defines
+the node abstraction
+
+<blockquote>
+<table>
+<TR><TD><pre>
+private class Node {
+   Item item;
+   Node next;
+}
+</pre></td></tr>
+</table>
+</blockquote>
+
+<ul>
+<p><li><em>Building a linked list.</em>
+To build a linked list that contains the items
+<tt>to</tt>, <tt>be</tt>, and <tt>or</tt>, we create a
+<tt>Node</tt> for each item, set the item field in each of the nodes to the desired value,
+and set the <tt>next</tt> fields to build the linked list.
+
+
+<p><center>
+<IMG SRC="images/linked-list.png" alt = "building a linked list">
+</center>
+
+
+<p><li><em>Insert at the beginning.</em>
+The easiest place to insert a new node in a linked list is at the beginning.
+
+
+<p><center>
+<IMG SRC="images/linked-list-insert-front.png" alt = "inserting a new node at the beginning of a linked list">
+</center>
+
+<p><li><em>Remove from the beginning.</em>
+Removing the first node in a linked list is also easy.
+
+
+<p><center>
+<IMG SRC="images/linked-list-remove-first.png" alt = "removing the first node in a linked list">
+</center>
+
+<p><li><em>Insert at the end.</em>
+To insert a node at the end of a linked list, we maintain a link to the last node in the list.
+
+
+<p><center>
+<IMG SRC="images/linked-list-insert-end.png" alt = "inserting a node at the end of a linked list">
+</center>
+
+<p><li><em>Traversal.</em>
+The following is the idiom for traversing the nodes in a linked list.
+
+<blockquote>
+<table>
+<TR><TD><pre>
+for (Node x = first; x != null; x = x.next) {
+   // process x.item
+}
+</pre></td></tr>
+</table>
+</blockquote>
+
+</ul>
+
+
+
+<p><h2>Linked-list implementations of collections.</h2>
+
+<ul>
+
+<p><li><em>Linked list implementation of a stack.</em>
+<a href = "Stack.java.html">Stack.java</a> implements 
+a generic stack using a linked list.
+It maintains the stack as a linked list, with the top of the stack at the
+beginning, referenced by an instance variable <tt>first</tt>.
+To <tt>push()</tt> an item, we add it to the beginning 
+of the list; to <tt>pop()</tt> an item, we remove it from the 
+beginning of the list.
+
+<p><li><em>Linked list implementation of a queue.</em>
+Program <a href = "Queue.java.html">Queue.java</a> implements
+a generic FIFO queue using a linked list.
+It maintains the queue as a linked list in order from least recently to
+most recently added items, with the beginning of the queue
+referenced by an instance variable <tt>first</tt> and the end of 
+the queue referenced by an instance variable <tt>last</tt>.
+To <tt>enqueue()</tt> an item, we add it to the end of the list;
+to <tt>dequeue()</tt> an item, we remove it from the beginning of the list.
+
+<p><li><em>Linked list implementation of a bag.</em>
+Program <a href = "Bag.java.html">Bag.java</a> implements
+a generic bag using a linked list.
+The implementation is the same as <a href = "Stack.java.html">Stack.java</a>
+except for changing the name of <tt>push()</tt> to <tt>add()</tt> and removing
+<tt>pop()</tt>.
+
+</ul>
+
+
+
+<p><h2>Iteration.</h2>
+To consider the task of implementing iteration, we start with a snippet of client code that 
+prints all of the items in a collection of strings, one per line:
+
+<blockquote>
+<table>
+<TR><TD><pre>
+Stack&lt;String&gt; collection = new Stack&lt;String&gt;();
+...
+for (String s : collection)
+   StdOut.println(s);
+...
+</pre></td></tr>
+</table>
+</blockquote>
+
+
+This <em>foreach</em> statement is shorthand for the following <tt>while</tt>
+statement:
+
+<blockquote>
+<table>
+<TR><TD><pre>
+Iterator&lt;String&gt; i = collection.iterator();
+while (i.hasNext()) { 
+   String s = i.next();
+   StdOut.println(s);
+}
+</pre></td></tr>
+</table>
+</blockquote>
+
+To implement iteration in a collection:
+
+<ul>
+
+<p><li> 
+Include the following <tt>import</tt> statement
+so that our code can refer to Java's
+<a href = "http://download.oracle.com/javase/6/docs/api/java/util/Iterator.html">java.util.Iterator</a>
+interface:
+
+<blockquote>
+<table>
+<TR><TD><pre>
+import java.util.Iterator;
+</pre></td></tr>
+</table>
+</blockquote>
+
+
+<p><li> 
+Add the following to the class declaration,
+a promise to provide an <tt>iterator()</tt> method,
+as specified in 
+the
+<a href = "http://download.oracle.com/javase/6/docs/api/java/lang/Iterable.html">java.lang.Iterable</a> interface:
+
+<blockquote>
+<table>
+<TR><TD><pre>
+implements Iterable&lt;Item&gt;
+</pre></td></tr>
+</table>
+</blockquote>
+
+
+
+<p><li>
+Implement a method <tt>iterator()</tt> that returns an object from a class
+that implements the <tt>Iterator</tt> interface:
+
+<blockquote>
+<table>
+<TR><TD><pre>
+public Iterator&lt;Item&gt; iterator() {
+    return new ListIterator();
+}
+</pre></td></tr>
+</table>
+</blockquote>
+
+
+
+<p><li>
+Implement a nested class that implements the <tt>Iterator</tt> interface
+by including the methods
+<tt>hasNext()</tt>, <tt>next()</tt>, and <tt>remove()</tt>.
+We always use an empty method for the optional <tt>remove()</tt> method
+because interleaving
+iteration with operations that modify the data structure is best avoided.
+
+<ul>
+<p><li>
+The nested class <tt>ListIterator</tt> in <a href = "Bag.java.html">Bag.java</a>
+illustrates how to implement a class that implements the <tt>Iterator</tt>
+interface when the underlying data structure is a linked list.
+<p><li>
+The nested class <tt>ArrayIterator</tt>
+in <a href = "ResizingArrayBag.java.html">ResizingArrayBag.java</a>
+does the same when the underlying data structure is an array.
+</ul>
+
+</ul>
+
+
+<p><br>
+
+
+<P>
+<H4>Autoboxing Q + A</H4>
+
+
+
+<p><b>Q.</b> How does auto-boxing handle the following code fragment?
+<blockquote>
+<table>
+<TR><TD><pre>
+Integer a = null;
+int b = a;
+</pre></td></tr>
+</table>
+</blockquote>
+
+<p><b>A.</b> It results in a run-time error. Primitive type can store every
+value of their corresponding wrapper type except <tt>null</tt>.
+
+
+<p><b>Q.</b> Why does the first group of statements print <tt>true</tt>,
+but the second <tt>false</tt>?
+<blockquote>
+<table>
+<TR><TD><pre>
+Integer a1 = 100;
+Integer a2 = 100;
+System.out.println(a1 == a2);   // true
+
+Integer b1 = new Integer(100);
+Integer b2 = new Integer(100);
+System.out.println(b1 == b2);   // false
+
+Integer c1 = 150;
+Integer c2 = 150;
+System.out.println(c1 == c2);   // false
+
+</pre></td></tr>
+</table>
+</blockquote>
+
+<p><b>A.</b> The second prints <tt>false</tt> because <tt>b1</tt> and
+<tt>b2</tt> are references to different Integer objects.
+The first and third code fragments rely on autoboxing.
+Surprisingly the first prints true because values between -128 and
+127 appear to refer to the same immutable Integer objects (Java's implementation
+of <tt>valueOf()</tt> retrieves a cached values if the integer is between
+-128 and 127),
+while Java constructs new objects for each integer outside this range.
+
+<p>
+Here is another
+<a href = "Autoboxing.java.html">Autoboxing.java</a> anomaly.
+
+
+
+<a name = "Q+A"></a>
+<P>
+<H4>Generics Q + A</H4>
+
+<p><b>Q.</b> Are generics solely for auto-casting?
+<p><b>A.</b> No, but we will use them only for 
+"concrete parameterized types", where each data type 
+is parameterized by a single type.
+The primary benefit is to discover type mismatch errors at compile-time
+instead of run-time.
+There are other more general (and more complicated) uses of generics,
+including wildcards. This generality is useful for handling
+subtypes and inheritance.
+For more information, see this 
+<a href = "http://www.angelikalanger.com/GenericsFAQ/JavaGenericsFAQ.html">
+Generics FAQ</a> and this 
+<a href = "http://docs.oracle.com/javase/tutorial/java/generics">Java generics tutorial</a>.
+
+<p><b>Q.</b> Can concrete parameterized types be used in the same way as
+normal types?
+<p><b>A.</b> Yes, with a few exceptions (array creation,
+exception handling, with <tt>instanceof</tt>, and in a class literal).
+
+<p><b>Q.</b> Can I make the Node class static?</b>
+<p><b>A.</b>
+For <a href = "LinkedStackOfStrings.java.html">LinkedStackOfString.java</a>,
+you can do so with no other changes and save 8 bytes (of inner class overhead)
+per node.
+However, the nested class <tt>Node</tt> in <a href = "Stack.java.html">Stack.java</a>
+uses the type information of <tt>Item</tt> from the outer class, so you would need to
+do a bit of extra work to make it static.
+<a href = "StackWithStaticNode.java.html">StackWithStaticNode.java</a> accomplishes
+this by making the nested class itself generic.
+
+<p><b>Q.</b> Why do I get a "can't create an array of generics" error 
+when I try to create an array of generics?
+<blockquote>
+<table>
+<TR><TD><pre>
+public class ResizingArrayStack&lt;Item&gt; {
+   Item[] a = new Item[1];
+</pre></td></tr>
+</table>
+</blockquote>
+
+<p><b>A.</b> Unfortunately, creating arrays of generics is not possible in Java 1.5.
+The underlying cause is that arrays in Java are <em>covariant</em>,
+but generics are not.
+In other words, <tt>String[]</tt> is a subtype of
+<tt>Object[]</tt>, but <tt>Stack&lt;String&gt;</tt> is not a
+subtype of <tt>Stack&lt;Object&gt;</tt>.
+To get around this defect, you need to perform an unchecked cast
+as in <a href = "ResizingArrayStack.java.html">ResizingArrayStack.java</a>.
+
+
+<p><b>Q.</b> So, why are arrays covariant?
+<p><b>A.</b> 
+Many programmers (and programming language theorists)
+consider covariant arrays to be a serious defect in Java's type system:
+they incur unnecessary run-time performance overhead
+(for example, see
+<a href = "http://download.oracle.com/javase/6/docs/api/java/lang/ArrayStoreException.html">ArrayStoreException</a>)
+and can lead to subtle bugs.
+Covariant arrays were introduced in Java to circumvent
+the problem that Java didn't originally include
+generics in its design, e.g., to
+implement <tt>Arrays.sort(Comparable[])</tt> and have it be callable with an
+input array of type <tt>String[]</tt>.
+
+
+<p><b>Q.</b> Can I create and return a new array of a parameterized type, e.g.,
+to implement a <tt>toArray()</tt> method for a generic queue?</b>
+
+<p><b>A.</b> Not easily.
+You can do it using reflection provided that the client passes an object of the
+desired concrete type to <tt>toArray()</tt>
+This is the (awkward) approach taken by Java's Collection Framework.
+
+
+
+
+
+<P>
+<H4>Iterator Q + A</H4>
+
+
+<p><b>Q.</b> Why is the construct called <em>foreach</em> if it uses the keyword <tt>for</tt>?
+<p><b>A.</b> Other languages use the keyword <tt>foreach</tt>, but the Java developers did
+not want to introduce a new keyword and break backward compatibility.
+
+<p><b>Q.</b> Are <tt>String</tt>s iterable?
+<p><b>A.</b> No.
+
+<p><b>Q.</b> Are arrays <tt>Iterable</tt>?
+<p><b>A.</b> No. You can use the foreach syntax with them. However,
+you can not pass an array to a method that expects an <tt>Iterable</tt>
+or return an array from a method which returns an <tt>Iterable</tt>.
+This would be convenient, but it doesn't work that way.
+
+<p><b>Q.</b> What's wrong with the following code fragment?
+<blockquote>
+<table>
+<TR><TD><pre>
+String s;
+for (s : listOfStrings)
+   System.out.println(s);
+</pre></td></tr>
+</table>
+</blockquote>
+
+<p><b>A.</b> The enhanced for loop requires that the iterating variable
+be declared inside the loop.
+
+
+<p><br>
+
+<H4>Exercises</H4>
+<ol>
+
+<a name = "Ex1.3.1"></a>
+<li value = 1>
+Add a method <tt>isFull()</tt> to
+<a href = "FixedCapacityStackOfStrings.java.html">FixedCapacityStackOfStrings.java</a>.
+
+<a name = "Ex1.3.2"></a>
+<li value = 2>
+Give the output printed by <tt>java Stack</tt> for the input
+
+<blockquote>
+<table>
+<TR><TD><pre>
+it was - the best - of times - - - it	was - the - -
+</pre></td></tr>
+</table>
+</blockquote>
+
+<em>Solution.</em> <tt>was best times of the was the it (1 left on stack)</tt>
+
+
+<a name = "Ex1.3.3"></a>
+<li value = 3>
+Suppose that an intermixed sequence of (stack)
+<em>push</em> and <em>pop</em> operations are performed.
+The pushes push the integers 0 through 9 in order; the pops print out the 
+return value. Which of the following sequence(s) could not occur?
+
+<blockquote>
+<table>
+<TR><TD><pre>
+(a)  4 3 2 1 0 9 8 7 6 5
+
+(b)  4 6 8 7 5 3 2 9 0 1
+
+(c)  2 5 6 7 4 8 9 3 1 0
+
+(d)  4 3 2 1 0 5 6 7 8 9
+
+(e)  1 2 3 4 5 6 9 8 7 0
+
+(f)  0 4 6 5 3 8 1 7 2 9
+
+(g)  1 4 7 9 8 6 5 3 0 2
+
+(h)  2 1 4 3 6 5 8 7 9 0
+</pre></td></tr>
+</table>
+</blockquote>
+
+<p><em>Answer</em>: (b), (f), and (g).
+
+<a name = "Ex1.3.4"></a>
+<li value = 4>
+Write a stack client <a href = "Parentheses.java.html">Parentheses.java</a>
+that reads in sequence of left and right parentheses, braces, and brackets
+from standard input and uses a stack to determine whether the sequence is properly balanced.
+For example, your program should print <tt>true</tt> for
+<tt>[()]{}{[()()]()}</tt> and <tt>false</tt> for <tt>[(])</tt>.
+
+
+<a name = "Ex1.3.5"></a>
+<li value = 5>
+What does the following code fragment print when <tt>n</tt> is 50?
+Give a high-level description of what it does when presented with
+a positive integer <tt>n</tt>.
+
+<blockquote>
+<table>
+<TR><TD><pre>
+Stack&lt;Integer&gt; s = new Stack&lt;Integer&gt;();
+while (n > 0) {
+   s.push(n % 2);
+   n = n / 2;
+}
+while (!s.isEmpty())
+    System.out.print(s.pop());
+System.out.println();
+</pre></td></tr>
+</table>
+</blockquote>
+
+<p>
+<em>Answer</em>: Prints the binary representation of <tt>N</tt>
+(<tt>110010</tt> when <tt>n</tt> is <tt>50</tt>).
+
+<a name = "Ex1.3.6"></a>
+<li value = 6>
+What does the following code fragment do to the queue <tt>q</tt>?
+<blockquote>
+<table>
+<TR><TD><pre>
+Stack&lt;String&gt; s = new Stack&lt;String&gt;();
+while(!q.isEmpty())
+   s.push(q.dequeue());
+while(!s.isEmpty())
+   q.enqueue(s.pop());
+</pre></td></tr>
+</table>
+</blockquote>
+
+<em>Answer</em>: Reverses the items on the queue.
+
+<a name = "Ex1.3.7"></a>
+<li value = 7>
+Add a method <tt>peek</tt> to <a href = "Stack.java.html">Stack.java</a>
+that returns the most recently inserted item on the stack (without popping it).
+
+<a name = "Ex1.3.10"></a>
+<li value = 10>
+Write a filter
+Program <A href = "InfixToPostfix.java.html">InfixToPostfix.java</a> 
+that converts an arithmetic expression from infix to postfix.
+
+<a name = "Ex1.3.11"></a>
+<li value = 11>
+Write a program
+<a href = "EvaluatePostfix.java.html">EvaluatePostfix.java</a> that
+that takes a postfix expression from standard input, evaluates it,
+and prints the value. 
+(Piping the output of your program from the previous exercise to this program
+gives equivalent behavior to <a href = "Evaluate.java.html">Evaluate.java</a>.)
+
+<a name = "Ex1.3.13"></a>
+<li value = 13>
+Suppose that a client performs an intermixed sequence of (queue)
+<em>enqueue</em> and <em>dequeue</em> operations.
+The enqueue operations put the integers 0 through 9 in order onto the queue;
+the dequeue operations print out the return value.
+Which of the following sequence(s) could not occur?
+
+<blockquote>
+<table>
+<TR><TD><pre>
+(a)  0 1 2 3 4 5 6 7 8 9
+
+(b)  4 6 8 7 5 3 2 9 0 1 
+
+(c)  2 5 6 7 4 8 9 3 1 0
+
+(d)  4 3 2 1 0 5 6 7 8 9
+</pre></td></tr>
+</table>
+</blockquote>
+
+<em>Answer</em>: (b), (c), and (d).
+
+
+<a name = "Ex1.3.14"></a>
+<li value = 14>
+Develop a class <tt>ResizingArrayQueueOfStrings</tt>
+that implements the queue abstraction with a fixed-size array,
+and then extend your implementation 
+to use array resizing
+to remove the size restriction.
+
+<p><em>Solution</em>:
+<a href = "ResizingArrayQueue.java.html">ResizingArrayQueue.java</a>
+
+</ol>
+
+<H4>Linked-List Exercises</H4>
+<ol>
+
+</ol>
+
+
+<H4>Creative Problems</H4>
+<ol>
+
+
+<a name = "Ex1.3.37"></a>
+<li value = 37><b>Josephus problem.</b>
+In the Josephus problem from antiquity, <em>N</em>
+people are in dire straits and agree to the following strategy
+to reduce the population. They arrange themselves in a circle (at 
+positions numbered from 0 to N???1) and proceed around the circle,
+eliminating every Mth person until only one person is left.
+Legend has it that Josephus figured out where to sit to avoid 
+being eliminated. Write a <tt>Queue</tt> client 
+<a href = "Josephus.java.html">Josephus.java</a>
+that takes M and N from the command line and prints out the order
+in which people are eliminated (and thus would show Josephus where to sit 
+in the circle).
+
+<blockquote>
+<table>
+<TR><TD><pre>
+ % java Josephus 2 7
+1 3 5 0 4 2 6
+</pre></td></tr>
+</table>
+</blockquote>
+
+
+<a name = "Ex1.3.42"></a>
+<li value = 42><b>Copy a stack.</b>        
+Create a new constructor for the linked-list implementation of
+<a href = "Stack.java.html">Stack.java</a> so that <tt>Stack t = new Stack(s)</tt>
+makes <tt>t</tt> reference a new and independent copy of the stack
+<tt>s</tt>.
+
+<p>
+<em>Recursive solution</em>: create a copy constructor for a linked list starting
+at a given <tt>Node</tt>
+and use this to create the new stack.
+
+<blockquote>
+<table>
+<TR><TD><pre>
+Node(Node x) {
+   item = x.item;
+   if (x.next != null) next = new Node(x.next);
+}
+
+public Stack(Stack&lt;Item&gt; s) { first = new Node(s.first); }
+</pre></td></tr>
+</table>
+</blockquote>
+
+<p>
+<em>Nonrecursive solution</em>: create a copy constructor for a single <tt>Node</tt> object.
+
+<blockquote>
+<table>
+<TR><TD><pre>
+Node(Node x) { this.item = x.item; this.next = x.next; }
+
+public Stack(Stack&lt;Item&gt; s) {
+   if (s.first != null) {
+      first = new Node(s.first);
+      for (Node x = first; x.next != null; x = x.next)
+         x.next = new Node(x.next);
+   }
+}
+</pre></td></tr>
+</table>
+</blockquote>
+
+
+<a name = "Ex1.3.45"></a>
+<li value = 45><b>Stack generability.</b>
+Suppose that we have a sequence of intermixed <em>push</em> 
+and <em>pop</em> operations as with our test stack client, where the
+integers 0, 1, ..., N-1 in that order (<em>push</em> directives)
+are intermixed with <em>N</em> minus signs (<em>pop</em> directives).
+Devise an algorithm that determines whether the intermixed
+sequence causes the stack to underflow. (You may use only an amount of space
+independent of <em>N</em>&mdash;you cannot store the integers in a 
+data structure.)
+Devise a linear-time algorithm that determines whether a given permutation
+can be generated as output by our test client
+(depending on where the <em>pop</em> operations occur).
+
+<p>
+<em>Solution.</em>
+The stack does not underflow unless there exists an integer <em>k</em> such that
+the first <em>k</em> pop operations occur before the first <em>k</em> push operations.
+<p>
+If a given permutation can be generated, it is uniquely generated
+as follows: if the next integer in the permutation is in the
+top of the stack, pop it; otherwise, push the next integer in the input sequence
+onto the stack (or stop if N-1 has already been pushed).
+The permutation can be generated if and only if the stack is empty upon termination.
+
+<a name = "Ex1.3.46"></a>
+<li value = 46><b>Forbidden triple for stack generability. (R. Tarjan)</b>
+Prove that a permutation can be generated by a stack (as in the previous
+question) if and only if it has no <em>forbidden triple (a, b, c)</em>
+such that a < b < c with c first, a second, and 
+b third (possibly with other intervening integers between
+c and a and between a and b).
+
+<p><em>Partial solution.</em>
+Suppose that there is a forbidden triple (a, b, c). Item c is popped
+before a and b, but a and b are pushed before c. Thus, when c is pushed,
+both a and b are on the stack. Therefore, a cannot be popped before b.
+
+<li value = 47><b>Catenable queues, stacks, or steques.</b>
+Add an extra operation <em>catenation</em> that (destructively)
+concatenates two queues, stacks, or steques.
+<em>Hint</em>: use a circular linked list, maintaining a pointer
+to the last item.
+
+<a name = "Ex1.3.50"></a>
+<li value = 50><b>Fail-fast iterator.</b>
+Modify the iterator code in <a href = "Stack.java.html">Stack.java</a>
+to immediately throw a
+<a href = "http://download.oracle.com/javase/6/docs/api/java/util/ConcurrentModificationException.html">java.util.ConcurrentModificationException</a>
+if the client modifies the collection (via <tt>push()</tt> or <tt>pop()</tt>)
+during iteration.
+
+<p><em>Solution:</em>
+Maintain a counter that counts the number of <tt>push()</tt> and <tt>pop()</tt>
+operations. When creating an iterator,
+store this value as an iterator instance variable.
+Before each call to <tt>hasNext()</tt> and <tt>next()</tt>, check
+that this value has not changed since construction of the iterator;
+if it has, throw an exception.
+
+
+</ol>
+
+
+<H4>Web Exercises</H4>
+
+<ol>
+<li><b>Tail.</b>        
+Write a program <tt>Tail</tt> so that <tt>Tail k < file.txt</tt>
+prints the last <tt>k</tt> lines of the file <tt>file.txt</tt>.
+Use <tt>StdIn.readLine()</tt>. Which data structure should you use?
+
+
+<li><b>Bounded stack.</b>
+A <em>bounded stack</em> is a stack that has 
+a capacity of at most N. (Applications: undo or history with
+finite buffer.)
+
+<li><b>Delete ith element.</b>        
+Create a data type that supports the following operations:
+<tt>isEmpty</tt>, <tt>insert</tt>, and <tt>remove(int i)</tt>, where
+the deletion operation deletes and returns the ith least recently
+added object on the queue. Do it with an array, then do it with
+a linked list. What is the running time for each operation?
+
+<li><b>Dynamic shrinking.</b>        
+With the array implementations of stack and queue, we doubled the size
+of the array when it wasn't big enough to store the next element.
+If we perform a number of doubling operations, and then delete a lot
+of elements, we might end up with an array that is much bigger than
+necessary. Implement the following strategy: whenever the array is
+1/4 full or less, shrink it to half the size.
+Explain why we don't shrink it to half the size when it is 1/2
+full or less.
+
+<li><b>Stack + max.</b>
+Create a data structure that efficiently supports the stack
+operations (pop and push) and also return the maximum element. 
+Assume the elements are integers or reals so that you can
+compare them.
+<p>
+<em>Hint:</em> use two stacks, one to store all of the elements
+and a second stack to store the maximums.
+
+<li><b>PostScript.</b>
+<em>PostScript</em> is a stack-based language used by most printers.
+Implement a small subset of PostScript using a stack.
+
+<li><b>Interview question.</b>
+Given a stack of an unknown number of strings,
+print out the 5th to the last one. It's OK to destroy the stack
+in the process.
+<em>Hint</em>: use a queue of 5 elements.
+
+<li><b>Tag systems.</b>
+Write a program that reads in a binary string from the command line
+and applies the following (00, 1101) tag-system: if the first bit is 0, delete
+the first three bits and append 00; if the first bit is 1, delete the first
+three bits and append 1101. Repeat as long as the string has at least 3 bits.
+Try to determine whether the following inputs will halt or go into an infinite
+loop: 10010, 100100100100100100. Use a queue.
+
+
+<li><b>Turing tape.</b>
+Implement an <em>one-dimensional Turing tape</em>.
+The tape consists of a sequence of cells, each of which stores
+an integer (that is initialized to 0).
+ At any instant, there is a <em>tape head</em> which
+points to one of the cells.
+Support the following interface methods:
+<tt>moveLeft</tt> to move the tape head one cell to the left,
+<tt>moveRight</tt> to move the tape head one cell to the right,
+<tt>look</tt> to return the contents of the active cell,
+and <tt>write(int a)</tt> to change the contents of the active
+cell to <tt>a</tt>.
+<em>Hint</em>: use an <tt>int</tt> for the active cell,
+and two stacks for the left and right parts of the tape.
+Similar to text editor buffer.
+
+<li><b>Palindrome checker.</b>
+Write a program that reads in a sequence of strings
+and checks whether it constitutes a palindrome.
+Ignore punctuation and spaces and case. (A MAN, 
+A PLAN, A CANAL - PANAMA).
+Use one stack and one queue.
+
+<li><b>Streaming algorithm.</b>
+Given a long sequence of items, design a data structure to
+store the k items most recently seen.
+
+
+<li><b>2 M/M/1 queues.</b>
+Next customer is assigned to the smaller of the two queues.
+Use 2 FIFO queues.
+Perception that you always pick the longer line (or wrong lane)
+when approaching a toll plaza. Suppose two cars enter the toll
+plaza at the same time and pick different queues of the same length.
+Compute average length in time that one car will beat the other
+car by.
+
+<li><b>M/M/k queue.</b>
+Compare k independent M/M/1 queues vs. M/M/k queue.
+
+<li><b>M/G/1 queue.</b>
+Analyze queueing model with a different service 
+distribution (G = general).
+
+
+<li><b>Infix to postfix with precedence order.</b>
+Write a program to convert an infix expression to postfix.
+Scan the infix expression from left to right. 
+<ul>
+<li> Operand: output it.
+<li> Left parentheses: push onto stack.
+<li> Right parentheses: repeatedly pop elements from the stack and output them
+until a left parenthesis is encountered. Discard both parentheses.
+<li> Operator with high precedence than top of stack: push onto stack.
+<li> Operator with lower or equal precedence than top of stack: 
+repeatedly pop elements from the stack and output them until top of
+stack has higher precedence. Push the scanned operator onto the stack.
+</ul>
+Afterward, pop remaining elements off stack and output them.
+
+
+<li><b>Check for duplicates.</b>
+Write a code fragment that determines if a bag
+contains any duplicate items. Use two nested iterators.
+
+<li><b>Check for triplicates.</b>
+Write a code fragment that determines if a bag
+contains any item repeated at least three times.
+Use triply nested iterators.
+
+<li><b>Equality.</b>
+Two queues are equal if they contain the same items
+in the same order.
+Two bags are equal if they contain the same items
+in any order.
+
+
+<li><b>Set of integers.</b>
+Create a data type that represents a set of integers (no duplicates)
+between 0 and N-1. Support add(i), exists(i), remove(i), size(),
+intersect, difference, symmetricDifference, union, isSubset, isSuperSet, 
+and isDisjointFrom. Include an iterator.
+
+<li><b>Colon.</b>
+Experienced programmers know that it's usually a bad idea
+to write a loop like
+
+<blockquote>
+<table>
+<TR><TD><pre>
+for (double x = 0.0; x <= N; x += 0.1) {
+   ..
+}
+</pre></td></tr>
+</table>
+</blockquote>
+
+since as a result of floating point precision, the loop will
+execute 10N times if N = xxx, and 10N + 1 times if N = yyy.
+Create an data type <tt>Mesh</tt> so that <tt>x</tt> ranges
+from <tt>left</tt> to <tt>right</tt> in increments of size <tt>delta</tt>.
+Assuming <tt>right >= left</tt>, the loop should execute <em>exactly</em>
+If <tt>1 + floor((right - left) / delta)</tt> times.
+<blockquote>
+<table>
+<TR><TD><pre>
+for (double x : new Mesh(left, right, delta)) {
+   ..
+}
+</pre></td></tr>
+</table>
+</blockquote>
+
+This is how the colon operator works in MATLAB. You should
+also instrument your program so that it works even left > right
+and delta is negative.
+
+
+
+<li><b>List iterators.</b>
+We might also want to include methods <tt>hasPrevious()</tt> and <tt>previous()</tt>
+for going backwards in the list.
+To implement <tt>previous()</tt> we can use a doubly-linked list.
+Program <a href = "DoublyLinkedList.java.html">DoublyLinkedList.java</a>
+implements this strategy. It uses Java's <tt>ListIterator</tt> interface
+to support moving forwards and backwards. We implement all optional methods,
+including <tt>remove()</tt>, <tt>set()</tt>, and <tt>add()</tt>.
+The method <tt>remove()</tt> deletes the last element returned
+by either <tt>next()</tt> or <tt>previous()</tt>.
+The method <tt>set()</tt> overwrites the value of the last element
+returned by either <tt>next()</tt> or <tt>previous()</tt>.
+The method <tt>add()</tt> inserts an element before the next element
+that would be returned by <tt>next()</tt>.
+It is legal to call <tt>set()</tt> and <tt>remove()</tt>
+only after a call either to <tt>next()</tt> or <tt>previous()</tt>, and with no
+intervening calls to either <tt>remove()</tt> or <tt>add()</tt>.
+
+<p>
+We use a dummy head and tail node to avoid extra cases.
+We also store an extra variable <tt>lastAccessed</tt> which stores the
+node accessed in the most recent call to <tt>next()</tt> or <tt>previous()</tt>.
+After removing an element, we reset <tt>lastAccessed</tt> to <tt>null</tt>; this
+designates that calling <tt>remove()</tt> is illegal (until after a subsequent
+call to either <tt>next()</tt> or <tt>previous()</tt>.
+
+
+
+<li><b>TwoWayIterator.</b>
+Define an interface <tt>TwoWayIterator</tt> that supports four
+methods:  <tt>hasNext()</tt>, <tt>hasPrevious()</tt>, <tt>next()</tt>,
+and <tt>previous()</tt>.
+Implement a list that supports a <tt>TwoWayIterator</tt>.
+<em>Hint</em>: implement the list using an array or 
+doubly linked list.
+
+<li><b>Adding one bag to the end of another.</b>
+Write a method that adds the items of one bag b to
+the end of the invoking bag a.
+Assume both bags store items of the same type.
+<p><em>Hint</em>: iterate through the items of b using an iterator,
+and add each to the end of the invoking bag.
+
+<li><b>Replace all.</b>
+Write a method that replaces all occurrences of an item 
+<tt>from</tt> with the item <tt>to</tt> in a queue or stack.
+
+<li><b>Adding a list to itself.</b>
+What is the result of the following code fragment?
+
+<blockquote>
+<table>
+<TR><TD><pre>
+List list1 = new ArrayList();
+List list2 = new ArrayList();
+list1.add(list2);
+list2.add(list1);
+System.out.println(list1.equals(list2));
+
+List list = new ArrayList();
+list.add(list);
+System.out.println(list.hashCode());
+</pre></td></tr>
+</table>
+</blockquote>
+
+<em>Answer</em>: stack overflow. The Java documents says
+that "while it is permissible for lists to contain themselves
+as elements, extreme caution is advised: the equals and
+hashCode methods are no longer well defined on a such a list."
+
+<li><b>Song playlist.</b>
+Create an data type that supports the following operations:
+<tt>enqueue</tt> (add a new song to the end of the list),
+<tt>play</tt> (print the name of the next song),
+<tt>skip</tt> (skip the next song in the list, and do not
+prints its name) and
+<tt>back</tt> (go back one song).
+Use a list that supports an iterator with forward and backwards.
+
+
+<li><b>Josephus.</b>
+Program <a href = "Josephus.java.html">Josephus.java</a> 
+computes Josephus number.
+
+<li> Will the following print out the integers 0 through 9 (in ascending order)?
+
+<blockquote>
+<table>
+<TR><TD><pre>
+int[] vals = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+for (int val : vals) {
+   System.out.print(val + " ");
+   StdRandom.shuffle(vals);     // mutate the array while iterating
+}
+System.out.println();
+</pre></td></tr>
+</table>
+</blockquote>
+
+No. It will print out 10 values, but with some duplicates and not in ascending
+order.
+The iterator does not save a copy of the original array - instead, it uses
+the mutated copy.
+
+<li><b>Queue with one access pointer.</b>
+Re-implement a queue, with all operations taking constant time,
+but only one instance variable (instead of two).
+<em>Hint</em>: use a circular linked list, maintaining a pointer
+to the last item.
+
+
+<li><b>Steque.</b>
+A <em>stack-ended queue</em> or <em>steque</em> is a data type that 
+supports push, pop, and enqueue.
+Knuth calls it an output-restricted deque.
+Implement it using a singly-linked list.
+
+
+<li><b>Queue with two stacks.</b>
+Implement a queue with two stacks so that each queue operations takes
+a constant amortized number of stack operations.
+<em>Hint:</em> If you push elements onto a stack and then pop them all,
+they appear in reverse order. If you repeat this process, they're now
+back in order. 
+
+<p><em>Solution:</em> <a href = "QueueWithTwoStacks.java.html">QueueWithTwoStacks.java</a>.
+
+<li><b>Queue with a constant number of stacks.</b>
+Implement a queue with a constant number of stacks so that each queue operations
+takes a constant (worst-case) number of stack operations.
+<em>Warning:</em> high degree of difficulty.
+
+<li><b>Stack with a queue.</b>
+Implement a stack with a single queue so that each stack operations
+takes a linear number of queue operations.
+<em>Hint:</em> to delete an item, get all of the elements on the queue
+one at a time, and put them at the end, except for the last one
+which you should delete and return. (Admittedly very inefficient.)
+
+<li><b>Two stacks with a deque.</b>
+Implement two stacks with a single deque so that each operation
+takes a constant number of deque operations.
+
+<li><b>Steque with two stacks. (R. Tarjan)</b>
+Implement a steque with two stacks so that each steque operation
+takes a constant amortized number of stack operations.
+
+<li><b>Deque with a stack and a steque. (R. Tarjan)</b>
+Implement a deque with a stack and a steque so that each deque operation
+takes a constant amortized number of stack and steque operations.
+
+
+<li><b>Deque with three stacks. (R. Tarjan)</b>
+Implement a deque with three stacks so that each deque operation
+takes a constant amortized number of stack operations.
+
+
+<p><li><em>Multi-word search.</em>
+Program <a href = "MultiwordSearch.java.html">MultiwordSearch.java</a> reads
+a sequence of query words q[1], ..., q[k] from the command line
+and a sequence of documents words d[1], ..., d[N] from standard input
+and finds the shortest interval in which the k words appear in
+the same order. (Here shortest means the number of words in
+the interval.) That is find indices i and j such that
+d[i1] = q[1], d[i2] = q[2], ..., d[ik] = q[k]
+and i1 < i2 < ... < ik.
+<p>
+<em>Answer</em>: for each query word, create a sorted
+list of the indices where it appears in the document.
+Scan through lists 2 to k in that order, deleting
+indices at the front of each list until the the
+first elements of the resulting k lists are in
+ascending order.
+
+<blockquote>
+<table>
+<TR><TD><pre>
+q[1]: 50 123 555 1002 1066
+q[2]: 33 44 93 333 606 613
+q[3]: 60 200
+q[4]: 12 18 44 55 203 495
+
+q[1]: 50 123 555 1002 1066
+q[2]: 93 333 606 613
+q[3]: 200
+q[4]: 203 495
+</pre></td></tr>
+</table>
+</blockquote>
+
+The sequence of first elements on the lists 
+forms the shortest interval containing the first
+element on list 1.
+<p>
+Now delete the first element on list 1.
+Repeatedly delete elements from list 2 until it
+agrees with list 1. Repeat for list 3, and so on
+until the whole array is in ascending order.
+Check this sequence of first elements, etc.
+
+
+<p><li><em>M/M/1 queue.</em>
+The <a href = "http://ultima.cs.unr.edu/cs709c/unit1.htm">Markov/Markov/Single-Server model</a>
+is a fundamental queueing model in operations research and probability theory.
+Tasks arrive according to a <em>Poisson process</em>
+at a certain rate &lambda;.
+This means that &lambda; customers arrive per hour. More specifically,
+the arrivals follow an exponential distribution with mean 1 / &lambda;:
+the probability of k arrivals between time 0 and t
+is (&lambda; t)^k e^(-&lambda; t) / k!.
+Tasks are serviced in FIFO order according to a Poisson process
+with rate &mu;.
+The two M's standard for Markov: it  means that the system
+is <em>memoryless</em>: the time between
+arrivals is independent, and the time between departures is
+independent.
+
+<p>
+Analysis of M/M/1 model.
+We are interested in understanding the queueing system.
+If &lambda > &mu; the queue size increases without limit.
+For simple models like M/M/1 we can analyze these quantities analytically
+using probability theory.
+Assuming &mu; > &lambda;, the probability of exactly
+n customers in the system is (&lambda; / &mu;)^n (1 - &lambda; / &mu).
+
+<ul>
+<li>
+L = average number of customers in the system = &lambda; / (&mu; - &lambda;).
+<li>
+L<sub>Q</sub> = average number of customers in the queue =
+&lambda;<sup>2</sup> / (&mu; (&mu; - &lambda;)).
+<li>
+W = average time a customer spends in the system = 1 / (&mu; - &lambda;).
+<li>
+W<sub>Q</sub> = average time a customer spends in the queue = W - 1 / &mu;.
+</ul>
+
+
+<p>
+Program <a href = "MM1Queue.java.html">MM1Queue.java</a>
+For more complex models we need to resort to simulation
+like this.
+Variants: multiple queues, multiple servers, sequential multi-stage
+servers, using a finite queue and measuring number of customers that are
+turned away.
+Applications: customers in McDonalds, packets in an internet router,
+
+
+<p><li><em>Listing files.</em>
+A Unix directory is a list of files and directories.
+Program <a href = "Directory.java.html">Directory.java</a> takes 
+the name of a directory as a command-line argument and prints out
+all of the files contained
+in that directory (and any subdirectories) in level-order. It uses
+a queue.
+
+
+<p><li><em>Interrupt handling.</em>
+ When programming a real-time system that can be interrupted (e.g., by 
+a mouse click or wireless connection), it is necessary to attend to the interrupts 
+immediately, before proceeding with the current activity. If the interrupts should be 
+handles in the same order they arrive, then a FIFO queue is the appropriate data 
+structure.
+
+<p><li><em>Library implementation.</em>
+Java has a built in library called <tt>Stack</tt>, but you should
+avoid using it.
+It has additional operations that are not normally associated with a stack, e.g.,
+getting the ith element and adding an element to the bottom of the stack
+(instead of the top). Although having such extra operations may appear
+to be a bonus, it is actually a curse. We use ADTs not because they
+provide every available operation, but rather because they <em>limit</em>
+the types of operations we are allowed to perform! This 
+prevents us from performing operations that we don't actually want.
+If we need more than just LIFO access, we should use a different
+data type. We can still build a stack data type from the Java libraries,
+but we are careful to limit the types of operations.
+There is no Java queue implementation.
+
+
+<li><em>Load balancing.</em>
+N users must choose among N identical servers in a network.
+Goal: balance users across resources. Checking each resource
+to find an empty one (or least busy one) is too expensive.
+Instead, choose a random server.
+At any step, you should be able to see which
+jobs are on each machine.
+Program <a href = "Server.java.html">Server.java</a>
+Plot distribution of loads.
+Theory: avg load = 1,  max load = log N / log log N.
+
+
+<li><em>Load balancing reloaded.</em>
+(<a href = "http://epubs.siam.org/sam-bin/getfile/SICOMP/articles/28849.pdf">Azar, Broder,
+Karlin, and Upfal</a>)
+Choose two random resources. Insert on least busy of the two.
+Theory: avg load = 1, max load = log log N.
+
+
+<li><em>Gridding.</em>
+Given N Euclidean points in the unit box and a parameter d,
+find all pairs that are within distance d.
+Divide box into a G-by-G grid where G = ceil(1/d).
+Put all points in a list in given grid cell.
+Any neighbor within distance d must be in that cell or one of
+its 8 neighbors.
+Program <A href = "Grid.java.html">Grid.java</a> implements
+this strategy using the helper data type
+<a href = "Point2D.java.html">Point2D.java</a>.
+
+
+
+<li><em>Java library.</em>
+Java contains library classes <tt>LinkedList</tt> and <tt>ArrayList</tt>
+that implement a list.
+Has wider interface than our <tt>Sequence</tt>
+data type: access an element by its index,
+delete an element, search for an element.
+No urns.
+
+
+
+<li>
+Add a method <tt>dup</tt> to <tt>Stack</tt> that creates a second
+copy of the topmost element and pushes it onto the stack.
+
+
+<li>
+Add a method <tt>exch</tt> to <tt>Stack</tt> that exchanges
+the top two elements on the stack.
+
+<li>
+Add a method <tt>size()</tt> to <tt>Stack</tt>
+that returns the number of elements on the stack.
+
+<li>
+Add a method <tt>Item[] multiPop(int k)</tt> to
+<tt>Stack</tt> that pops k elements from the stack and returns
+them as an array of objects.
+
+<li>
+Add a method <tt>Item[] toArray()</tt> to <tt>Queue</tt>
+that returns all N elements on the queue as an array of length N.
+
+<li>
+Write a recursive function that takes as input a queue, and 
+rearranges it so that it is in reverse order.
+Hint: dequeue the first element, recursively reverse the queue,
+and the enqueue the first element.
+
+<li>
+Given a queue, create two new queues q1 and q2 so that q1
+contains the even elements of q and q2 contains the odd
+elements, e.g., as in dealing a deck of cards.
+
+
+
+<li>
+What does the following code fragment do?
+<blockquote>
+<table>
+<TR><TD><pre>
+Queue&lt;Integer&gt; q = new Queue&lt;Integer&gt;();
+q.enqueue(0);
+q.enqueue(1);
+for (int i = 0; i < 10; i++) {
+    int a = q.dequeue();
+    int b = q.dequeue();
+    q.enqueue(b);
+    q.enqueue(a + b);
+    System.out.println(a);
+}
+</pre></td></tr>
+</table>
+</blockquote>
+
+<li>
+What data type would you choose to implement an "Undo" feature in
+a word processor?
+
+<li>
+Suppose you have a single array of size N and want to implement
+two stacks so that you won't get overflow until the total number
+of elements on both stacks is N+1. How would you implement this?
+
+<li>
+Suppose that you implemented <tt>push</tt> in the linked list 
+implementation of <a href = "Stack.java.html">Stack.java</a>
+with the following code. What is the mistake?
+<blockquote>
+<table>
+<TR><TD><pre>
+public void push(Item item) {
+   Node second = first;
+   Node first = new Node();
+   first.item = item;
+   first.next = second;
+}
+</pre></td></tr>
+</table>
+</blockquote>
+<p><em>Answer</em>: By redeclaring <tt>first</tt>, you are 
+create a new local variable named <tt>first</tt>, which is different from
+the instance variable named <tt>first</tt>. 
+
+<li><b>Minimum stack.</b>
+Design a data type that implements the following operations, all 
+in constant time: push, pop, min. Assume that the items are <tt>Comparable</tt>.
+
+<p><em>Solution:</em>: maintain two stacks, one which contains all of the items
+and another which contains the minima. To push an item, push it on the first stack;
+if it is smaller than the topmost item on the second stack, push it on the second
+stack as well. To pop an item, pop it from the first stack; if it is the top item
+on the second stack, pop it from the second stack as well. To find the minimum,
+return the top item on the second stack.
+
+
+<li><b>Expression evaluation.</b>
+Write a program <a href = "EvaluateDeluxe.java.html">EvaluateDeluxe.java</a>
+that generalizes <a href = "Evaluate.java.html">Evaluate.java</a> to handle
+expressions that are not fully parenthesized, using the standard precedence 
+order for the operators +, -, *, and /.
+
+<li><b>Doubling and halving.</b>
+What is the effect of replacing the halving test in
+<a href = "ResizingArrayStack.java.html">ResizingArrayStack.java</a>
+from <tt>if (N > 0 && N == a.length/4) resize(a.length/2);</tt> to
+<tt>if (size == a.length/4) resize(2*size);</tt>?
+
+<li><b>Shunting-yard algorithm.</b>
+Implement Dijkstra's 
+<a href = "http://en.wikipedia.org/wiki/Shunting-yard_algorithm">shunting-yard
+algorithm</a> to convert an infix expression into a postfix expression.
+Support operator precedence, including both left and right associative operators.
+
+
+</ol>
+
+
+
+<br><br>
+<p class = footer>
+<em>Last modified on May 29, 2013.</em><br><br>
+Copyright &copy; 2002&ndash;2013
+<a href = "http://www.cs.princeton.edu/~rs" class = footer>Robert Sedgewick</a>
+and
+<a href = "http://www.cs.princeton.edu/~wayne" class = footer>Kevin Wayne</a>.
+All rights reserved.
+</div>
+
+
+
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-10811519-2");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+
+</html>
+
+ 
+
+
+
+
+<!--
+<hr>
+<center><a href=#GLOBALS>GLOBALS</a> | <a href=#_SERVER>_SERVER</a> | <a href=#_GET>_GET</a> | <a href=#_POST>_POST</a> | <a href=#_FILES>_FILES</a> | <a href=#_COOKIE>_COOKIE</a> | <a href=#_SESSION>_SESSION</a> | <a href=#_REQUEST>_REQUEST</a> | <a href=#_ENV>_ENV</a></center>
+<hr>
+<b><a name=GLOBALS>GLOBALS</a>:</b>
+<li> $GLOBALS[GLOBALS] = <a href=#GLOBALS>Array</a>
+<li> $GLOBALS[_POST] = <a href=#_POST>Array</a>
+<li> $GLOBALS[_GET] = <a href=#_GET>Array</a>
+<li> $GLOBALS[_COOKIE] = <a href=#_COOKIE>Array</a>
+<li> $GLOBALS[_FILES] = <a href=#_FILES>Array</a>
+<li> $GLOBALS[title] = Array<li> $GLOBALS[section] = 1.3<li> $GLOBALS[_SERVER] = <a href=#_SERVER>Array</a>
+<li> $GLOBALS[number] = Array<li> $GLOBALS[url] = Array<li> $GLOBALS[count] = 36<li> $GLOBALS[i] = 36<li> $GLOBALS[filename] = index.html<li> $GLOBALS[date] = 09/03/13 05:18<li> $GLOBALS[REMOTEADDR] = 192.155.87.22<li> $GLOBALS[REMOTEHOST] = li584-22.members.linode.com<li> $GLOBALS[HTTPREFERER] = http://algs4.cs.princeton.edu/home/<li> $GLOBALS[REQUESTURI] = /13stacks/<li> $GLOBALS[REDIRECTSTATUS] = <li> $GLOBALS[fp] = Resource id #6<li> $GLOBALS[superglobals] = Array<li> $GLOBALS[env] = GLOBALS<li> $GLOBALS[nav] = Array<li> $GLOBALS[nav_list] = <a href=#GLOBALS>GLOBALS</a> | <a href=#_SERVER>_SERVER</a> | <a href=#_GET>_GET</a> | <a href=#_POST>_POST</a> | <a href=#_FILES>_FILES</a> | <a href=#_COOKIE>_COOKIE</a> | <a href=#_SESSION>_SESSION</a> | <a href=#_REQUEST>_REQUEST</a> | <a href=#_ENV>_ENV</a><li> $GLOBALS[val] = <a href=#GLOBALS>GLOBALS</a> | <a href=#_SERVER>_SERVER</a> | <a href=#_GET>_GET</a> | <a href=#_POST>_POST</a> | <a href=#_FILES>_FILES</a> | <a href=#_COOKIE>_COOKIE</a> | <a href=#_SESSION>_SESSION</a> | <a href=#_REQUEST>_REQUEST</a> | <a href=#_ENV>_ENV</a><li> $GLOBALS[key] = val<hr>
+<b><a name=_SERVER>_SERVER</a>:</b>
+<li> $_SERVER[HTTP_HOST] = algs4.cs.princeton.edu<li> $_SERVER[HTTP_CONNECTION] = keep-alive<li> $_SERVER[HTTP_ACCEPT] = text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8<li> $_SERVER[HTTP_USER_AGENT] = Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.62 Safari/537.36<li> $_SERVER[HTTP_REFERER] = http://algs4.cs.princeton.edu/home/<li> $_SERVER[HTTP_ACCEPT_ENCODING] = gzip,deflate,sdch<li> $_SERVER[HTTP_ACCEPT_LANGUAGE] = en-US,en;q=0.8,zh-CN;q=0.6,zh;q=0.4<li> $_SERVER[HTTP_COOKIE] = __utma=170034928.1942842627.1377958141.1378173328.1378199905.8; __utmb=170034928.1.10.1378199905; __utmc=170034928; __utmz=170034928.1378128826.6.2.utmcsr=coursera.cs.princeton.edu|utmccn=(referral)|utmcmd=referral|utmcct=/algs4/assignments/percolation.html<li> $_SERVER[PATH] = /sbin:/usr/sbin:/bin:/usr/bin<li> $_SERVER[SERVER_SIGNATURE] = <address>Apache/2.2.15 (Red Hat) Server at algs4.cs.princeton.edu Port 80</address>
+<li> $_SERVER[SERVER_SOFTWARE] = Apache/2.2.15 (Red Hat)<li> $_SERVER[SERVER_NAME] = algs4.cs.princeton.edu<li> $_SERVER[SERVER_ADDR] = 128.112.136.74<li> $_SERVER[SERVER_PORT] = 80<li> $_SERVER[REMOTE_ADDR] = 192.155.87.22<li> $_SERVER[DOCUMENT_ROOT] = /n/fs/algs4/www<li> $_SERVER[SERVER_ADMIN] = rs@CS.Princeton.EDU<li> $_SERVER[SCRIPT_FILENAME] = /n/fs/algs4/www/13stacks/index.php<li> $_SERVER[REMOTE_PORT] = 57949<li> $_SERVER[GATEWAY_INTERFACE] = CGI/1.1<li> $_SERVER[SERVER_PROTOCOL] = HTTP/1.1<li> $_SERVER[REQUEST_METHOD] = GET<li> $_SERVER[QUERY_STRING] = <li> $_SERVER[REQUEST_URI] = /13stacks/<li> $_SERVER[SCRIPT_NAME] = /13stacks/index.php<li> $_SERVER[PHP_SELF] = /13stacks/index.php<li> $_SERVER[REQUEST_TIME] = 1378199915<hr>
+<b><a name=_GET>_GET</a>:</b>
+<hr>
+<b><a name=_POST>_POST</a>:</b>
+<hr>
+<b><a name=_FILES>_FILES</a>:</b>
+<hr>
+<b><a name=_COOKIE>_COOKIE</a>:</b>
+<li> $_COOKIE[__utma] = 170034928.1942842627.1377958141.1378173328.1378199905.8<li> $_COOKIE[__utmb] = 170034928.1.10.1378199905<li> $_COOKIE[__utmc] = 170034928<li> $_COOKIE[__utmz] = 170034928.1378128826.6.2.utmcsr=coursera.cs.princeton.edu|utmccn=(referral)|utmcmd=referral|utmcct=/algs4/assignments/percolation.html<hr>
+<b><a name=_SESSION>_SESSION</a>:</b>
+<hr>
+<b><a name=_REQUEST>_REQUEST</a>:</b>
+<hr>
+<b><a name=_ENV>_ENV</a>:</b>
+-->
